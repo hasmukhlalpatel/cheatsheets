@@ -1,11 +1,11 @@
 # C# 7 cheatsheet
 ## Out Variables
 ```csharp
-    public void PrintCoordinates(Point p)
-    {
-        p.GetCoordinates(out int x, out int y);
-        WriteLine($"({x}, {y})");
-    }
+public void PrintCoordinates(Point p)
+{
+	p.GetCoordinates(out int x, out int y);
+	WriteLine($"({x}, {y})");
+}
 ```
 ### out is used to declare a variable at the point where it is passed as an argument.
 
@@ -99,11 +99,70 @@ public int Fibonacci(int x)
 
 ```
 
+## Ref Returns and Locals
+```csharp
+public ref int Find(int number, int[] numbers)
+{
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] == number) 
+        {
+            return ref numbers[i]; // return the storage location, not the value
+        }
+    }
+    throw new IndexOutOfRangeException($"{nameof(number)} not found");
+}
+
+int[] array = { 1, 15, -39, 0, 7, 14, -12 };
+ref int place = ref Find(7, array); // aliases 7's place in the array
+place = 9; // replaces 7 with 9 in the array
+WriteLine(array[4]); // prints 9
+```
 
 
+## Throw Expressions
+```csharp
+class Person
+{
+    public string Name { get; }
+    public Person(string name) => Name = name ?? throw new ArgumentNullException(name);
+    public string GetFirstName()
+    {
+        var parts = Name.Split(" ");
+        return (parts.Length > 0) ? parts[0] : throw new InvalidOperationException("No name!");
+    }
+    public string GetLastName() => throw new NotImplementedException();
+}
 
+```
 
+## More Expression Bodied Members
+### C# 7.0 adds accessors, constructors and finalizers to the list of things that can have expression bodies:
 
+```csharp
+class Person
+{
+    private static ConcurrentDictionary<int, string> names = new ConcurrentDictionary<int, string>();
+    private int id = GetId();
+
+    public Person(string name) => names.TryAdd(id, name); // constructors
+    ~Person() => names.TryRemove(id, out *);              // destructors
+    public string Name
+    {
+        get => names[id];                                 // getters
+        set => names[id] = value;                         // setters
+    }
+}
+
+```
+## Literal Improvements
+### Digit Separator inside numbers literals
+```csharp
+var d = 123_456;
+var x = 0xAB_CD_EF;
+Binary Literals
+var b = 0b1010_1011_1100_1101_1110_1111;
+```
 
 
     ```csharp
