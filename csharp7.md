@@ -1,11 +1,11 @@
 # C# 7 cheatsheet
 ## Out Variables
     ```csharp
-public void PrintCoordinates(Point p)
-{
-    p.GetCoordinates(out int x, out int y);
-    WriteLine($"({x}, {y})");
-}
+    public void PrintCoordinates(Point p)
+    {
+        p.GetCoordinates(out int x, out int y);
+        WriteLine($"({x}, {y})");
+    }
     ```
     
 
