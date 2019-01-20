@@ -1,8 +1,7 @@
-# csharp
+#cheatsheets
+## csharp
+[csharp 7][1]
 
-   ```csharp
-    for (int i = 0 ; i < 10; i++)
-    {
-      // Code to execute.
-    }
-    ```
+
+
+[1]: /csharp7.md
