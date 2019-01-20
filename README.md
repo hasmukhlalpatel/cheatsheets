@@ -5,3 +5,6 @@
 
 
 [1]: /csharp7.md
+
+## Additional Sources
+- [devhints](https://devhints.io/)
