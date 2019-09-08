@@ -14,13 +14,13 @@
   - same as  console.group() but the new displayed block is collapsed.
   
 ## Find an object from a list or an array
-- Array.prototype.findIndex() 
-  – find and return an index
+- Array.prototype.findIndex()
+  - find and return an index
 - Array.prototype.includes() 
-  – test whether a value exists in the array
+  - test whether a value exists in the array
 - Array.prototype.filter() 
-  – remove all non-matching elements
+  - remove all non-matching elements
 - Array.prototype.every() 
-  – test all elements
+  - test all elements
 - Array.prototype.some() 
-  – test until one element matches
+  - test until one element matches
