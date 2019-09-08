@@ -24,3 +24,5 @@
   - test all elements
 - Array.prototype.some() 
   - test until one element matches
+
+[Mozila developer page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
